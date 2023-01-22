@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ClassSubjectCard extends StatelessWidget {
-  const ClassSubjectCard({
-    Key? key,
-    required this.color,
-  }) : super(key: key);
+  ClassSubjectCard({this.color, this.grade, this.studentCount, this.subject});
 
   final Color? color;
+  final String? grade;
+  final int? studentCount;
+  final String? subject;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ClassSubjectCard extends StatelessWidget {
           Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Class Five (5)",
+                "Class " + grade!,
                 style: TextStyle(
                     color: color != null ? Colors.white : Colors.grey[600],
                     height: 1.4,
@@ -30,7 +30,7 @@ class ClassSubjectCard extends StatelessWidget {
           Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Social Studies",
+                subject!,
                 style: TextStyle(
                     color: color != null ? Colors.white : Colors.black,
                     fontSize: 14,
@@ -46,7 +46,7 @@ class ClassSubjectCard extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text('32 Students',
+                Text('${studentCount} Students',
                     style: TextStyle(
                       fontSize: 10,
                       color: color != null ? Colors.white : Colors.grey[600],

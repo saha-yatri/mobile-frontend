@@ -44,6 +44,7 @@ dependencies:
 
   url_launcher: ^6.1.8
   provider: ^6.0.5
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:

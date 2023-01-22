@@ -1,11 +1,16 @@
+import 'dart:convert';
+
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:procative_indicator/buttomNavbar.dart';
 import 'package:procative_indicator/homePage.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:procative_indicator/otpScreen.dart';
 import 'quotes.dart';
 import 'dart:math';
+
+import 'package:http/http.dart' as http;
 
 Random random = new Random();
 int randomNumber = random.nextInt(16);
@@ -36,7 +41,7 @@ class _MyAppState extends State<MyApp> {
         ),
         backgroundColor: Colors.white,
         showLoader: false,
-        navigator: ButtomNavBar(),
+        navigator: LoginPage(),
         durationInSeconds: 3,
       ),
     );
@@ -65,7 +70,6 @@ class LoginPage extends StatelessWidget {
                 child: TextFormField(
                   controller: _phone,
                   keyboardType: TextInputType.phone,
-                  onChanged: ((value) {}),
                   decoration: const InputDecoration(
                       hintText: "Enter your Phone Number",
                       hintStyle: TextStyle(fontSize: 14),
@@ -84,18 +88,67 @@ class LoginPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 40.0, vertical: 15),
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ButtomNavBar()));
-                    },
-                    child: Text("Get OTP")),
+                    child: Text('Get OTP'),
+                    onPressed: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OtpScreen()),
+                          )
+                        }
+                    // onPressed: (() async {
+                    //   // print(_phone);
+                    //   // print(_phone.value);
+
+                    //   try {
+                    //     var data = <String, String>{"phone": _phone.text};
+                    //     var response = await http.post(
+                    //         Uri.parse(""
+                    //             // '$host/account/reset-password/',
+                    //             ),
+                    //         body: jsonEncode(
+                    //           data,
+                    //         ),
+                    //         headers: <String, String>{
+                    //           'Content-Type': 'application/json',
+                    //         });
+
+                    //     if (response.statusCode == 200) {
+                    //       var responseBody = json.decode(response.body);
+                    //       Navigator.pushReplacement<void, void>(
+                    //         context,
+                    //         MaterialPageRoute<void>(
+                    //           builder: (BuildContext context) => OtpScreen(),
+                    //         ),
+                    //       );
+                    //     }
+                    //   } catch (e) {
+                    //     print(e);
+                    //   }
+
+                    ),
               ),
             ],
           ),
         ),
       )),
     );
+  }
+
+  sendOTP(num) async {
+    print(num);
+    var data = <String, String>{
+      "phone": num.toString(),
+    };
+    // var response = await http.post(
+    //     Uri.parse(
+    //       '$host/account/reset-password/',
+    //     ),
+    //     body: jsonEncode(
+    //       data,
+    //     ),
+    //     headers: <String, String>{
+    //       'Content-Type': 'application/json',
+    //     });
   }
 }
