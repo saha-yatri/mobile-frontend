@@ -22,15 +22,29 @@ class StudentListPage extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.centerLeft,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Row(
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(
+                                  FontAwesomeIcons.arrowLeft,
+                                )),
+                            const Text(
+                              "Class Student List",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
                         IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: const Icon(FontAwesomeIcons.arrowLeft)),
-                        const Text(
-                          "Class Student List",
-                          style: TextStyle(fontSize: 18),
+                          icon: Icon(
+                            FontAwesomeIcons.magnifyingGlass,
+                            size: 18,
+                          ),
+                          onPressed: () {},
                         ),
                       ],
                     )),

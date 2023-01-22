@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.procative_indicator">
    <application
-        android:label="procative_indicator"
+        android:label="BATS"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

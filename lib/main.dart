@@ -1,3 +1,4 @@
+import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:procative_indicator/buttomNavbar.dart';
@@ -7,7 +8,7 @@ import 'quotes.dart';
 import 'dart:math';
 
 Random random = new Random();
-int randomNumber = random.nextInt(93);
+int randomNumber = random.nextInt(16);
 
 void main() => runApp(MyApp());
 
@@ -20,25 +21,31 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Lato'),
-        home: AnimatedSplashScreen(
-            duration: 3000,
-            //TODO: should make better splash screen
-            splash: Container(
-                child: Center(
-              child: Text(quotes[randomNumber]),
-            )),
-            nextScreen: LoginPage(),
-            splashTransition: SplashTransition.fadeTransition,
-            // pageTransitionType: PageTransitionType.scale,
-            backgroundColor: Colors.blue));
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Lato'),
+      home: EasySplashScreen(
+        logo: Image.asset('assets/images/bat.png'),
+        title: Text(
+          softWrap: true,
+          maxLines: 5,
+          quotes[randomNumber],
+          style: const TextStyle(
+            fontSize: 12,
+            color: Colors.grey,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        showLoader: false,
+        navigator: ButtomNavBar(),
+        durationInSeconds: 3,
+      ),
+    );
   }
 }
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
+  LoginPage({super.key});
+  final TextEditingController _phone = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,22 +63,24 @@ class LoginPage extends StatelessWidget {
                   color: const Color(0xffF7F7F7),
                 ),
                 child: TextFormField(
-                  // controller: _email,
+                  controller: _phone,
+                  keyboardType: TextInputType.phone,
+                  onChanged: ((value) {}),
                   decoration: const InputDecoration(
-                      hintText: "Enter your Email",
+                      hintText: "Enter your Phone Number",
                       hintStyle: TextStyle(fontSize: 14),
-                      prefixIcon: Icon(FontAwesomeIcons.envelope)),
+                      prefixIcon: Icon(FontAwesomeIcons.phone)),
                 ),
               ),
-              TextFormField(
-                // controller: _email,
-                decoration: const InputDecoration(
-                    hintText: "Password", prefixIcon: Icon(Icons.lock_outline)),
+              SizedBox(
+                height: 30,
               ),
+
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 28.0),
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      primary: Color(0xff638FFF),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 40.0, vertical: 15),
                     ),
@@ -81,7 +90,7 @@ class LoginPage extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => ButtomNavBar()));
                     },
-                    child: Text("Login")),
+                    child: Text("Get OTP")),
               ),
             ],
           ),
