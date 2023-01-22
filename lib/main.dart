@@ -1,16 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:procative_indicator/homePage.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'quotes.dart';
+import 'dart:math';
+
+Random random = new Random();
+int randomNumber = random.nextInt(93);
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Lato'),
-        home: LoginPage());
+        home: AnimatedSplashScreen(
+            duration: 3000,
+            //TODO: should make better splash screen
+            splash: Container(
+                child: Center(
+              child: Text(quotes[randomNumber]),
+            )),
+            nextScreen: LoginPage(),
+            splashTransition: SplashTransition.fadeTransition,
+            // pageTransitionType: PageTransitionType.scale,
+            backgroundColor: Colors.blue));
   }
 }
 
