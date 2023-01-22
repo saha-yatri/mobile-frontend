@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:procative_indicator/accountScreen.dart';
 import 'package:procative_indicator/homePage.dart';
-import 'package:procative_indicator/trainingScree.dart';
+import 'package:procative_indicator/trainingScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ButtomNavBar extends StatefulWidget {
@@ -36,7 +36,9 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
         currentIndex: _currentIndex,
         selectedItemColor: Color(0xff638FFF),
         unselectedItemColor: Colors.black,
-        unselectedFontSize: 20,
+        unselectedFontSize: 18,
+        selectedIconTheme: IconThemeData(size: 20),
+        unselectedIconTheme: IconThemeData(size: 20),
         onTap: (int index) {
           setState(() {
             _currentIndex = index;
