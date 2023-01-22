@@ -36,7 +36,7 @@ class TrainingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(10),
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       decoration: BoxDecoration(
         image: DecorationImage(
             opacity: 0.6,
@@ -82,7 +82,7 @@ class TrainingCard extends StatelessWidget {
               onPressed: () => launch(
                   'https://docs.flutter.io/flutter/services/UrlLauncher-class.html'),
               child: Text(
-                "View Link",
+                "Enroll",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               style: TextButton.styleFrom(primary: Color(0xff638FFF)),
