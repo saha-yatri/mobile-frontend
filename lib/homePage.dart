@@ -8,10 +8,14 @@ import 'package:procative_indicator/studentListPage.dart';
 import 'package:procative_indicator/widgets/customAppbar.dart';
 import 'package:procative_indicator/widgets/peroidRowCard.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
-  // final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:procative_indicator/buttomNavbar.dart';
 import 'package:procative_indicator/homePage.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'quotes.dart';
@@ -75,8 +76,10 @@ class LoginPage extends StatelessWidget {
                           horizontal: 40.0, vertical: 15),
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ButtomNavBar()));
                     },
                     child: Text("Login")),
               ),
