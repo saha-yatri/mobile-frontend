@@ -1,16 +1,13 @@
-# procative_indicator
+# BATS mobile
 
-A new Flutter project.
+The mobile applilcation for the BATS platform created using flutter framework.
 
 ## Getting Started
+If you are a teacher in the related academic institution, you can simply request an OTP code
+from the app and log in with your phone number + OTP and get started right away.
 
-This project is a starting point for a Flutter application.
+- There are a a few resources to guide you through the guidelines under resources tab
+- You could start tagging students that stand out and start in the step to help make your
+  institution more inclusive.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Contact BATS team for any additional Info.
